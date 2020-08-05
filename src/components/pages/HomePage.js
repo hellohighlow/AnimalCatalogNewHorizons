@@ -27,13 +27,15 @@ const HomePage = () => {
       <div>
         <Header />
       </div>
-      <div>
-        <SideBar
-          username = {(currentUser) ? currentUser : ""}
-       />
-      </div>
-      <div>
-        <h2>Welcome {(currentUser) ? currentUser : ""}</h2>
+      <div style={{ display: 'flex' }}>
+        <div style={{ width: '30%' }}>
+          <SideBar
+            username = {(currentUser) ? currentUser : ""}
+        />
+        </div>
+        <div>
+          <h2>Welcome {(currentUser) ? currentUser : ""}</h2>
+        </div>
       </div>
     </div>
   )

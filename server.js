@@ -75,26 +75,6 @@ app.listen(PORT, function(){
     console.log("Server is listening on port " + PORT);
 });
 
-//API routes
+//Discord API routes
 app.use('/api/discord', require('./server/helpers/discordHelper'));
-
-app.get('/api/login', (req, res) => {
-    res.redirect('/api/discord/login')
-})
-
-//Error handling
-app.use((err, req, res, next) => {
-    switch (err.message) {
-      case 'NoCodeProvided':
-        return res.status(400).send({
-          status: 'ERROR',
-          error: err.message,
-        });
-      default:
-        return res.status(500).send({
-          status: 'ERROR',
-          error: err.message,
-        });
-    }
-  });
 

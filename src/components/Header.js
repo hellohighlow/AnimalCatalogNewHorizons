@@ -20,9 +20,9 @@ class Header extends Component{
             />
           </div>
           <div className='right-nav' style={{ float: 'right' }}>
-            <ul>
+            <ul className='right-nav-ul'>
               <div>
-                <li>
+                <li className='right-nav-li'>
                   <Link to='/user'>
                     <p style={{ color: 'white' }}>My Account</p>
                   </Link>

@@ -1,9 +1,10 @@
 .sidebar-outer{
-  height: 80%;
-  width: 30%;
+  height: 650px;
+  width: 50%;
   border: 2px solid black;
 }
-ul{
-  list-style-type: none;
-  width: inherit;
+.sidebar-nav-ul{
+  list-style: none;
+  font-size: 25px;
+  font-weight: 400;
 }
