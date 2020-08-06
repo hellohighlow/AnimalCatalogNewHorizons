@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../Header';
-import SideBar from '../SideBar';
+import Header from '../../components/Header/Header';
+import SideBar from '../../components/SideBar/SideBar';
+import './HomePage.css'
 
 const HomePage = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -23,18 +24,18 @@ const HomePage = () => {
   }, []);
 
   return(
-    <div>
-      <div>
+    <div className='page'>
+      <div className='header'>
         <Header />
       </div>
-      <div style={{ display: 'flex' }}>
-        <div style={{ width: '30%' }}>
+      <div className='content-body'>
+        <div className='content-sidebar'>
           <SideBar
             username = {(currentUser) ? currentUser : ""}
         />
         </div>
         <div>
-          <h2>Welcome {(currentUser) ? currentUser : ""}</h2>
+          
         </div>
       </div>
     </div>

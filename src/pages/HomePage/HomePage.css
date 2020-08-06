@@ -1,0 +1,7 @@
+.content-body{
+  display: flex;
+}
+
+.content-sidebar{
+  width: 20%;
+}

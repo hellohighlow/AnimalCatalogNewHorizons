@@ -8,6 +8,16 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 
+//Cookie packages
+const cookieSession = require('cookie-session');
+const cookieParser = require('cookie-parser');
+const compress = require('compression');
+const engines = require('consolidate')
+const morgan = require('morgan');
+
+//MongoDB import
+const mongo = require('./server/helpers/mongoHelper');
+
 //Server constants
 const PORT = 3001;
 const app = express();
@@ -23,13 +33,6 @@ if(process.env.LOCAL_HTTP){
 }else{
     server = require('https').createServer(app);
 }
-
-//Cookie packages
-const cookieSession = require('cookie-session');
-const cookieParser = require('cookie-parser');
-const compress = require('compression');
-const engines = require('consolidate')
-const morgan = require('morgan');
 
 //Cookie configuration
 app.use(helmet());
@@ -78,3 +81,11 @@ app.listen(PORT, function(){
 //Discord API routes
 app.use('/api/discord', require('./server/helpers/discordHelper'));
 
+app.post('/api/findOne', async function(req, res){
+    let data = await req.body;
+    let db = data.db;
+    let collection = data.collection;
+    let query = data.query;
+    let responseData = await mongo.findDocument(db, collection, query);
+    res.status(200).send(JSON.stringify(responseData));
+})
